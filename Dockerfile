@@ -10,7 +10,7 @@ RUN  apt-get install -y yasm nasm \
                 libtool pkg-config libcurl4-openssl-dev \
                 intltool libxml2-dev libgtk2.0-dev \
                 libnotify-dev libglib2.0-dev libevent-dev \
-                checkinstall git
+                checkinstall git libx264
                 
 USER main
 RUN git clone git://git.videolan.org/ffmpeg.git && cd ffmpeg &&\
