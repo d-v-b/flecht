@@ -18,4 +18,8 @@ RUN  apt-get install --force-yes -y yasm nasm \
 USER main
 RUN git clone git://git.videolan.org/ffmpeg.git && cd ffmpeg &&\
     ./configure --enable-libx264 --enable-gpl &&\
-    make -j 8 && make install 
+    make -j 8
+    
+USER root 
+RUN cd ffmpeg && make install
+USER main
