@@ -8,7 +8,7 @@ RUN echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/so
 RUN echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
 
 RUN apt-get update
-RUN  apt-get install -y yasm nasm \
+RUN  apt-get install --force-yes -y yasm nasm \
                 build-essential automake autoconf \
                 libtool pkg-config libcurl4-openssl-dev \
                 intltool libxml2-dev libgtk2.0-dev \
