@@ -1,16 +1,10 @@
 FROM andrewosh/binder-base
 
-MAINTAINER Joshua Gardner mellowcellofellow@gmail.com
+MAINTAINER Davis Bennett <davis.v.bennett@gmail.com> 
 
 USER root
 
-# Enable Universe and Multiverse and install dependencies.
+RUN apt-get update
+RUN apt-get -y --force-yes install ffmpeg libavcodec-extra-52 libavdevice-extra-52 libavfilter-extra-0 libavformat-extra-52 libavutil-extra-49 libpostproc-extra-51 libswscale-extra-0
 
-RUN echo deb http://archive.ubuntu.com/ubuntu precise universe multiverse >> /etc/apt/sources.list; apt-get update; apt-get -y install autoconf automake build-essential git mercurial cmake libass-dev libgpac-dev libtheora-dev libtool libvdpau-dev libvorbis-dev pkg-config texi2html zlib1g-dev libmp3lame-dev wget yasm; apt-get clean
-
-# Run build script
-
-ADD script/build.sh /build.sh
-RUN ["/bin/bash", "/build.sh"]
-
-CMD ["/bin/bash"]
+USER main
