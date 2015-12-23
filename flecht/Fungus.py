@@ -20,14 +20,6 @@ class Fungus(object):
             self._num_states = len(self.filters)
         return self._num_states
 
-
-#    def run_sim(self, seed, t):
-#        sMask = seed * 0
-#            for s in range(self.num_states):
-#                sMask += update(curField, nbs, nStates, gos, s)
-#        curField = sMask
-#        vol[t] = curField
-
     def grow(self, seed_array):
         """
         Apply filters to seed_array, returning a volume
@@ -43,7 +35,6 @@ class Fungus(object):
 
         for t in range(1, self.num_iter):
             for s in range(self.num_states):
-                # vol[:,:,t] += update(curField, nbs, nStates, gos, s)
                 vol[:, :, t] += self.__advance(s, vol[:, :, t-1])
 
         return vol
@@ -80,3 +71,9 @@ class Filter(object):
     def __init__(self, kernel, rule):
         self.kernel = kernel
         self.rule = rule
+
+
+class FilterForge(object):
+    """ Class for generating Filters """
+
+    pass
