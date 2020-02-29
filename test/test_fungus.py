@@ -1,15 +1,12 @@
 
 from numpy import eye, zeros, array_equal
-from fungus import Fungus, Filter
+from flecht.Fungus import Fungus, Rule
 
 
-class TestFungus(object):
+def test_growth_n2(self):
 
-    def test_growth_n2(self):
-
-        """ Simple growth with 2 states on a 3x3 array"""
-
-    filters = [Filter(eye(3), [1]), Filter(eye(3), [100])]
+    """ Simple growth with 2 states on a 3x3 array"""
+    rule = Rule(np.ones((3,3)))
 
     sim = Fungus(filters, num_iter=10)
     seed_dims = [9, 9]
@@ -18,3 +15,6 @@ class TestFungus(object):
     vol = sim.grow(seed_array)
 
     assert array_equal(eye(vol.shape[0]).astype('int'), vol[:, :, -1])
+
+
+test_growth_n2()

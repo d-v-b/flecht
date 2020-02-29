@@ -1,1 +1,2 @@
-from Fungus import Fungus
+from .Simulator import Simulator, TotalisticRule
+from .examples import examples
